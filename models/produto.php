@@ -2,7 +2,6 @@
 
 class Produto
 {
-  // ! ATENÇÃO AOS TIPOS DE DADOS, NÃO ENVIE AO BANCO DE DADOS AINDA
   public $nomeProduto = "";
   public $tipoProduto = "";
   public $descricao = "";
@@ -24,20 +23,14 @@ class Produto
     $this->condicaoExecucao = $condicaoExecucao;
   }
 
-  public function editarProduto()
-  {
-    # code...
-  }
-
   public function inserirProduto()
   {
+    // Realizar conexão com a base de dados
     $servername = "localhost";
     $dbUser = "root";
     $dbPassword = "root";
     $db = "cantina_jit_01";
     // $dbPord = 3306;
-
-    // Realizar conexão com a base de dados
     $conexao = new mysqli($servername, $dbUser, $dbPassword, $db);
 
     // Checar a conexão
@@ -74,6 +67,11 @@ class Produto
     header("Content-Type: application/json");
     // Transformando o array em uma string json;
     echo json_encode($valorRetorno);
+  }
+
+  public function editarProduto()
+  {
+    # code...
   }
 
   public function excluirProduto()
