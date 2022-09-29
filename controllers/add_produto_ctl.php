@@ -14,5 +14,4 @@ class AdicionarProdutoController
 
 $controller = new AdicionarProdutoController();
 echo $controller->adicionarProduto();
-
 ?>
