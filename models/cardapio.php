@@ -18,7 +18,7 @@ class Cardapio
       die("Falha na conexão: " + $conexao->connect_error);
     }
 
-    $instrucaoSQL = "SELECT nome_produto FROM produto";
+    $instrucaoSQL = "SELECT nome_produto, tipo_produto, preco FROM produto";
 
     $resultado = $conexao->query($instrucaoSQL);
 
@@ -26,7 +26,7 @@ class Cardapio
       // output data of each row
       while ($produtosROWS = $resultado->fetch_assoc()) {
         // echo $this->itensCardapio["nome_produto"] . "<br>";
-        array_push($this->itensCardapio, $produtosROWS["nome_produto"]);
+        array_push($this->itensCardapio, $produtosROWS);
       }
       // Informando à plataforma que ocorrerá um retorno JSON
       header("Content-Type: application/json");
