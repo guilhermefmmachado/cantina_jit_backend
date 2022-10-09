@@ -7,18 +7,20 @@ class Produto
   public $descricao = "";
   public $preco = 0;
   public $qtdeProdVendidos = 0;
+  public $limQtdePorSelecao = 0;
   public $estoque = 0;
   public $condicaoExecucao = false;
 
   public $qtdeSelecionadaCliente = 0;
   public $precoTotal = 0;
 
-  function __construct(String $nome, String $descricao, String $tipo, String $preco, String $estoque, bool $condicaoExecucao)
+  function __construct(String $nome, String $descricao, String $tipo, String $preco, String $limQtdePorSelecao, String $estoque, bool $condicaoExecucao)
   {
     $this->nomeProduto = $nome;
     $this->descricao = $descricao;
     $this->tipoProduto = $tipo;
     $this->preco = (float) $preco;
+    $this->limQtdePorSelecao = (int) $limQtdePorSelecao;
     $this->estoque = (int) $estoque;
     $this->condicaoExecucao = $condicaoExecucao;
   }
@@ -29,7 +31,7 @@ class Produto
     $servername = "localhost";
     $dbUser = "root";
     $dbPassword = "root";
-    $db = "cantina_jit_01";
+    $db = "cantina_jit_02";
     // $dbPord = 3306;
     $conexao = new mysqli($servername, $dbUser, $dbPassword, $db);
 
@@ -43,11 +45,7 @@ class Produto
     $valorRetorno["sucesso"] = false;
 
     if ($this->condicaoExecucao) {
-      $instrucaoSQL = "INSERT INTO produto SET nome_produto = '$this->nomeProduto',
-      tipo_produto = '$this->tipoProduto', descricao_produto = '$this->descricao',
-      preco = '$this->preco',
-      qtde_produtos_vedidos = '$this->qtdeProdVendidos',
-      estoque = '$this->estoque'";
+      $instrucaoSQL = "INSERT INTO produto (nome_produto, tipo_produto, descricao_produto, preco, qtde_produtos_vedidos, estoque, lim_qtde_por_selecao) VALUES ('$this->nomeProduto','$this->tipoProduto','$this->descricao','$this->preco','$this->qtdeProdVendidos','$this->estoque','$this->limQtdePorSelecao')";
 
       $resultado = $conexao->query($instrucaoSQL);
 

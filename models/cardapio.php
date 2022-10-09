@@ -9,7 +9,7 @@ class Cardapio
     $servername = "localhost";
     $dbUser = "root";
     $dbPassword = "root";
-    $db = "cantina_jit_01";
+    $db = "cantina_jit_02";
     // $dbPord = 3306;
     $conexao = new mysqli($servername, $dbUser, $dbPassword, $db);
 
@@ -18,7 +18,7 @@ class Cardapio
       die("Falha na conexão: " + $conexao->connect_error);
     }
 
-    $instrucaoSQL = "SELECT nome_produto, tipo_produto, preco FROM produto";
+    $instrucaoSQL = "SELECT nome_produto, tipo_produto, preco, lim_qtde_por_selecao FROM produto";
 
     $resultado = $conexao->query($instrucaoSQL);
 
