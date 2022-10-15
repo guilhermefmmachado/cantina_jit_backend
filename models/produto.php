@@ -55,8 +55,8 @@ class Produto
         $valorRetorno["msg"] = "Erro no banco de dados";
       }
     } else {
-      $return["error"] = true;
-      $return["message"] = 'Informe o formulário corretamente.';
+      $valorRetorno["erro"] = true;
+      $valorRetorno["msg"] = 'Informe o formulário corretamente.';
     }
 
     $conexao->close();
