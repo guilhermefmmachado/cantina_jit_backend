@@ -3,8 +3,8 @@
 class Escola
 {
   public $nomeEscola = "";
-  public $emailEscola = "";
-  public $senhaEscola = "";
+  private $emailEscola = "";
+  private $senhaEscola = "";
   public $qtdeClientes = 0;
   public $condicaoExecucao = false;
 
@@ -24,7 +24,7 @@ class Escola
     $this->condicaoExecucao = $condicaoExecucao;
   }
 
-  public function cadastrarEscola()
+  public function inserirEscola()
   {
     // Realizar conexão com a base de dados
     $servername = "localhost";
