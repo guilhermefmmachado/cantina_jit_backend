@@ -8,7 +8,7 @@ class Cardapio
   {
     $servername = "localhost";
     $dbUser = "root";
-    $dbPassword = "root";
+    $dbPassword = "";
     $db = "cantina_jit_02";
     // $dbPord = 3306;
     $conexao = new mysqli($servername, $dbUser, $dbPassword, $db);
